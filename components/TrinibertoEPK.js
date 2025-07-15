@@ -1,8 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { useState } from "react";
-import Image from "next/image";
 
 export default function TrinibertoEPK() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -10,25 +6,45 @@ export default function TrinibertoEPK() {
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <main className={`${isDarkMode ? "bg-[#1a1a1a] text-white" : "bg-white text-black"} font-sans transition-colors duration-500`}>
+    <main
+      className={`${
+        isDarkMode ? "bg-[#1a1a1a] text-white" : "bg-white text-black"
+      } font-sans transition-colors duration-500 min-h-screen`}
+    >
       {/* Toggle Theme */}
       <div className="fixed top-4 right-4 z-50">
-        <Button variant="outline" onClick={toggleTheme}>
+        <button
+          onClick={toggleTheme}
+          className="border border-white rounded px-3 py-1 hover:bg-white hover:text-black transition"
+        >
           {isDarkMode ? "Modo Claro" : "Modo Oscuro"}
-        </Button>
+        </button>
       </div>
 
       {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-center items-center text-center bg-[url('/texture.jpg')] bg-cover bg-center">
+      <section
+        className="h-screen flex flex-col justify-center items-center text-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/texture.jpg')" }}
+      >
         <h1 className="text-6xl font-bold tracking-wide mb-4">TRINIBERTO</h1>
-        <p className="text-lg uppercase tracking-widest">DJ / Productor – Buenos Aires, Argentina</p>
+        <p className="text-lg uppercase tracking-widest">
+          DJ / Productor – Buenos Aires, Argentina
+        </p>
         <div className="mt-6 flex gap-4">
-          <Button variant="secondary" asChild>
-            <a href="https://soundcloud.com/triniberto" target="_blank" rel="noopener noreferrer">Escuchar</a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a href="mailto:trinibertomusic@gmail.com">Contactar</a>
-          </Button>
+          <a
+            href="https://soundcloud.com/triniberto"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-orange-600 px-4 py-2 rounded text-white hover:bg-orange-700 transition"
+          >
+            Escuchar
+          </a>
+          <a
+            href="mailto:trinibertomusic@gmail.com"
+            className="border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition"
+          >
+            Contactar
+          </a>
         </div>
       </section>
 
@@ -36,9 +52,19 @@ export default function TrinibertoEPK() {
       <section className="py-20 px-6 md:px-20 bg-[#121212]">
         <h2 className="text-3xl font-semibold mb-6">Bio</h2>
         <p className="text-lg leading-relaxed max-w-3xl">
-          Triniberto es DJ y productor de Buenos Aires, activo desde principios del 2000 en la escena hip hop, electrónica y tropical del under local. Su recorrido se forjó en fiestas autogestivas, eventos independientes y festivales internacionales, donde fue desarrollando una identidad sólida y sin concesiones.
-          <br /><br />
-          Fue parte de ciclos pioneros como <strong>GOLDIE (2014)</strong>, que impulsó el trap antes de su masividad, y <strong>BAMBAATAA (2015)</strong>, una plataforma clave para el dancehall, los afrobeats y otros ritmos periféricos. Su sonido actual fusiona <strong>afrohouse, latin bass, baile funk, rare house y dancehall</strong>, en sesiones con narrativa, fuerza y baile.
+          Triniberto es DJ y productor de Buenos Aires, activo desde principios
+          del 2000 en la escena hip hop, electrónica y tropical del under local.
+          Su recorrido se forjó en fiestas autogestivas, eventos independientes y
+          festivales internacionales, donde fue desarrollando una identidad sólida
+          y sin concesiones.
+          <br />
+          <br />
+          Fue parte de ciclos pioneros como <strong>GOLDIE (2014)</strong>, que
+          impulsó el trap antes de su masividad, y <strong>BAMBAATAA (2015)</strong>
+          , una plataforma clave para el dancehall, los afrobeats y otros ritmos
+          periféricos. Su sonido actual fusiona{" "}
+          <strong>afrohouse, latin bass, baile funk, rare house y dancehall</strong>
+          , en sesiones con narrativa, fuerza y baile.
         </p>
       </section>
 
@@ -62,9 +88,15 @@ export default function TrinibertoEPK() {
       <section className="py-20 px-6 md:px-20 bg-[#121212]">
         <h2 className="text-3xl font-semibold mb-6">Presentaciones destacadas</h2>
         <ul className="space-y-4 text-lg">
-          <li><strong>GOLDIE (2014)</strong> — Ciclo pionero del trap</li>
-          <li><strong>BAMBAATAA (2015)</strong> — Ritmos afrodiaspóricos y dancehall</li>
-          <li><strong>LES PIOLES (2018)</strong> — Fiesta queer autogestiva en CABA</li>
+          <li>
+            <strong>GOLDIE (2014)</strong> — Ciclo pionero del trap
+          </li>
+          <li>
+            <strong>BAMBAATAA (2015)</strong> — Ritmos afrodiaspóricos y dancehall
+          </li>
+          <li>
+            <strong>LES PIOLES (2018)</strong> — Fiesta queer autogestiva en CABA
+          </li>
         </ul>
       </section>
 
@@ -87,7 +119,11 @@ export default function TrinibertoEPK() {
       <section className="py-20 px-6 md:px-20 bg-[#121212]">
         <h2 className="text-3xl font-semibold mb-6">Galería</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {["1vOS0p2ZwrRgBuQ_tA9A6le3eokPo_xrR", "1xzNrbz8apEwAS3qfIUEyuv7w8Mgb_GB_", "1jkDZkAKguuPIAW_0ZUd7v6mD8UY3CB5d"].map((id, idx) => (
+          {[
+            "1vOS0p2ZwrRgBuQ_tA9A6le3eokPo_xrR",
+            "1xzNrbz8apEwAS3qfIUEyuv7w8Mgb_GB_",
+            "1jkDZkAKguuPIAW_0ZUd7v6mD8UY3CB5d",
+          ].map((id, idx) => (
             <a
               key={idx}
               href={`https://drive.google.com/uc?id=${id}`}
@@ -107,18 +143,36 @@ export default function TrinibertoEPK() {
       {/* Contacto */}
       <section className="py-20 px-6 md:px-20 bg-[#1a1a1a] text-center">
         <h2 className="text-3xl font-semibold mb-4">Booking & Contacto</h2>
-        <p className="mb-2">Disponible para DJ sets, curaduría musical, ciclos temáticos y producción de eventos.</p>
+        <p className="mb-2">
+          Disponible para DJ sets, curaduría musical, ciclos temáticos y
+          producción de eventos.
+        </p>
         <p className="mb-4">📩 trinibertomusic@gmail.com</p>
         <div className="flex justify-center gap-6">
-          <Button variant="link" asChild>
-            <a href="https://www.instagram.com/triniberto_/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </Button>
-          <Button variant="link" asChild>
-            <a href="https://soundcloud.com/triniberto" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-          </Button>
-          <Button variant="link" asChild>
-            <a href="https://www.youtube.com/@triniberto_" target="_blank" rel="noopener noreferrer">YouTube</a>
-          </Button>
+          <a
+            href="https://www.instagram.com/triniberto_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-orange-600 transition"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://soundcloud.com/triniberto"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-orange-600 transition"
+          >
+            SoundCloud
+          </a>
+          <a
+            href="https://www.youtube.com/@triniberto_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-orange-600 transition"
+          >
+            YouTube
+          </a>
         </div>
       </section>
     </main>
